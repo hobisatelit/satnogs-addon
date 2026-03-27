@@ -5,8 +5,8 @@ set -eu
 # default values
 : "${METEOR_NORAD:=57166 59051}"
 : "${SATNOGS_OUTPUT_PATH:=/tmp/.satnogs/data}"
-: "${IQ_DUMP_FILENAME:=/iq/iq}"
-: "${SATDUMP_APP_DIR:=/iq/app/satdump}"
+: "${IQ_DUMP_FILENAME:=/tmp/.satnogs/iq.raw}"
+: "${SATDUMP_APP_DIR:=/app/satdump}"
 
 export LD_LIBRARY_PATH=$SATDUMP_APP_DIR
 
@@ -30,7 +30,7 @@ if [[ " $METEOR_NORAD " =~ .*\ ${NORAD}\ .* && "$ENABLE_IQ_DUMP" ]]; then
     rm -rf "${SATNOGS_OUTPUT_PATH}/meteor"
     mkdir -p "${SATNOGS_OUTPUT_PATH}/meteor"
     sleep 5
-    cp $IQ_DUMP_FILENAME "${IQ_DUMP_FILENAME}-meteor.raw"
+    cp $IQ_DUMP_FILENAME "${IQ_DUMP_FILENAME}.meteor"
     cd $SATDUMP_APP_DIR
-    ./satdump meteor_m2-x_lrpt baseband "${IQ_DUMP_FILENAME}-meteor.raw" "${SATNOGS_OUTPUT_PATH}"/meteor --samplerate 160000 --baseband_format s16 --fill_missing --max_fill_lines 100
+    ./satdump meteor_m2-x_lrpt baseband "${IQ_DUMP_FILENAME}.meteor" "${SATNOGS_OUTPUT_PATH}"/meteor --samplerate 160000 --baseband_format s16 --fill_missing --max_fill_lines 100
 fi
