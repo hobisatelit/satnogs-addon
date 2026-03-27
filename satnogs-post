@@ -1,6 +1,5 @@
 #!/bin/bash
-# SATNOGS_POST_OBSERVATION_SCRIPT="satnogs-post {{ID}} {{FREQ}} {{TLE}} {{TIMESTAMP}} {{BAUD}} {{SCRIPT_NAME}}"
+# SATNOGS_POST_OBSERVATION_SCRIPT="/app/satnogs-post {{ID}} {{FREQ}} {{TLE}} {{TIMESTAMP}} {{BAUD}} {{SCRIPT_NAME}}"
 
-/iq/app/meteor.sh stop "$@"
-/iq/app/rename.sh stop "$@"
-
+/app/meteor.sh stop "$@"
+/app/rename.sh stop "$@"
