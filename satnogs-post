@@ -1,0 +1,12 @@
+#!/bin/bash
+# SATNOGS_POST_OBSERVATION_SCRIPT="satnogs-post {{ID}} {{FREQ}} {{TLE}} {{TIMESTAMP}} {{BAUD}} {{SCRIPT_NAME}}"
+
+/iq/app/grsat.py stop "$@"
+#satdump.sh stop "$@"
+/iq/app/meteor.sh stop "$@"
+/iq/app/rename.sh stop "$@"
+/iq/app/iq_dump_rename.sh "$@"
+#bandscan.sh start
+#direwolf.sh start
+#rotor-park.sh
+
