@@ -10,7 +10,7 @@ ID="$2"      # $2 observation ID
 TLE="$4"     # $4 used tle's
 DATE="$5"    # $5 timestamp Y-m-dTH-M-S
 
-IMAGE="$SATNOGS_OUTPUT_PATH/data_${ID}_${DATE}"
+IMAGE="$SATNOGS_OUTPUT_PATH/data_${ID}"
 
 SATNAME=${TLE#*tle0\": \"}
 SATNAME=${SATNAME%%\"*}
