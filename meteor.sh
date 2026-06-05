@@ -26,7 +26,7 @@ NORAD=${NORAD%% *}
 
 echo "INFO: $ID, Norad: $NORAD, Sat: $SATNAME, Baud: $BAUD, TLE: $TLE" 
 
-if [[ " $METEOR_NORAD " =~ .*\ ${NORAD}\ .* && "$ENABLE_IQ_DUMP" ]]; then
+if [[ " $METEOR_NORAD " =~ .*\ ${NORAD}\ .* && ${ENABLE_IQ_DUMP,,} == true ]]; then
     rm -rf "${SATNOGS_OUTPUT_PATH}/meteor"
     mkdir -p "${SATNOGS_OUTPUT_PATH}/meteor"
     sleep 5
